@@ -81,6 +81,20 @@ const questions = [
         }
     }
     },
+    {
+    type:'list',
+    name: 'license',
+    message: `Choose your license (or select "none" for no license):`,
+    defaut: 'none',
+    choices: [
+        {name:'MIT', value:'MIT'},
+        {name:'ISC', value:'ISC'},
+        {name:'Apache 2.0', value:'Apache_2.0'},
+        {name:'GNU GPLv3', value:'GNU_GPLv3'},
+        {name:'Mozilla Public License 2.0', value:'Mozilla_2.0'},
+        'none'
+    ],
+    },
 ];
 
 // TODO: Create a function to write README file
@@ -88,8 +102,8 @@ function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt()
-
+    inquirer.prompt(questions)
+    .then(answers => console.log(answers))
 }
 
 // Function call to initialize app
