@@ -1,3 +1,4 @@
+const fs = require('fs')
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
@@ -168,12 +169,28 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(`./dist/${fileName}`, data, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message:'README created! Check /dist for the generated template'
+            })
+        })
+    })
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(answers => console.log(answers))
+    .then(answers => generateMarkdown(answers))
+    .then(markdown => writeToFile('README.md', markdown))
+    .then(writeFileResponse => console.log(writeFileResponse))
+    .catch(err => console.log(err))
 }
 
 // Function call to initialize app
