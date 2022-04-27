@@ -87,11 +87,12 @@ const questions = [
         message: `Choose your license (or select "none" for no license):`,
         defaut: 'none',
         choices: [
-            {name:'MIT License', value:'MIT'},
-            {name:'ISC License', value:'ISC'},
-            {name:'Apache License 2.0', value:'Apache_2.0'},
-            {name:'GNU GPLv3', value:'GNU_GPLv3'},
-            {name:'Mozilla Public License 2.0', value:'Mozilla_2.0'},
+            'MIT License',
+            'ISC License',
+            'Apache License 2.0',
+            'GNU GPLv3',
+            'Mozilla Public License 2.0',
+            'Boost Software License 1.0',
             'none'
         ],
     },
@@ -122,7 +123,7 @@ const questions = [
                 return true
             }
         }
-    },
+    }
 ];
 
 // TODO: Create a function to write README file
