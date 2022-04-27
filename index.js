@@ -2,7 +2,7 @@ const fs = require('fs')
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
     {
         type:'input',
@@ -168,7 +168,7 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
     return new Promise((resolve, reject) => {
         fs.writeFile(`./dist/${fileName}`, data, err => {
@@ -184,7 +184,7 @@ function writeToFile(fileName, data) {
     })
 }
 
-// TODO: Create a function to initialize app
+// Main function/promise chain for application
 function init() {
     inquirer.prompt(questions)
     .then(answers => generateMarkdown(answers))
