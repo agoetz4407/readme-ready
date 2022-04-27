@@ -49,6 +49,7 @@ ${data.testing}
 
 ## Questions
 Check out my [Github](https://github.com/${data.github})
+
 Send me an email with your questions at [${data.email}](mailto:${data.email})
 
 ${renderLicenseSection(data.license)}

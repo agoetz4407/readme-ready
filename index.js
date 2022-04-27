@@ -178,7 +178,7 @@ function writeToFile(fileName, data) {
             }
             resolve({
                 ok: true,
-                message:'README created! Check /dist for the generated template'
+                message:'README created! Check /dist for the generated README'
             })
         })
     })
@@ -189,7 +189,7 @@ function init() {
     inquirer.prompt(questions)
     .then(answers => generateMarkdown(answers))
     .then(markdown => writeToFile('README.md', markdown))
-    .then(writeFileResponse => console.log(writeFileResponse))
+    .then(writeFileResponse => console.log(writeFileResponse.message))
     .catch(err => console.log(err))
 }
 
