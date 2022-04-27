@@ -114,8 +114,7 @@ const questions = [
         name: 'email',
         message: 'Enter your email address:',
         validate: input => {
-            const emailCheck = input.includes('@')
-            if (!input || !emailCheck) {
+            if (!input || !input.includes('@') || !input.includes('.')) {
                 console.log(' Please enter a valid email address')
                 return false
             }
